@@ -87,7 +87,7 @@
                                     <archive>
                                         <manifest>
                                             <addClasspath>true</addClasspath>
-                                            <mainClass>com.ProyectoWeb2Application</mainClass>
+                                            <mainClass>com.Reto3Ciclo3Application</mainClass>
                                         </manifest>
                                     </archive>
                                 </configuration>
