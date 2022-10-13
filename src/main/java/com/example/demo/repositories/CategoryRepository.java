@@ -35,4 +35,9 @@ public class CategoryRepository {
     public Category save(Category c){
         return categoryCrudRepository.save(c);
     }
+    //Metodo Delete, void no devuelve nada
+    public void delete(Category c){
+        categoryCrudRepository.delete(c);
+    }
+    
 }

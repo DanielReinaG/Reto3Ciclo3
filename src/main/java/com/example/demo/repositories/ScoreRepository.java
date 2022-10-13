@@ -34,4 +34,8 @@ public class ScoreRepository {
     public Score save(Score s){
         return scoreCrudRepository.save(s);
     }
+    //Metodo Delete, void no devuelve nada
+    public void delete(Score s){
+        scoreCrudRepository.delete(s);
+    }
 }

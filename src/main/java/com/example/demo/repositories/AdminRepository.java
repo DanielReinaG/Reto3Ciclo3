@@ -34,4 +34,8 @@ public class AdminRepository {
     public Admin save(Admin a){
         return adminCrudRepository.save(a);
     }
+    //Metodo Delete, void no devuelve nada
+    public void delete(Admin a){
+        adminCrudRepository.delete(a);
+    }
 }

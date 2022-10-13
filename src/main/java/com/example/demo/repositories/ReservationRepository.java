@@ -34,4 +34,8 @@ public class ReservationRepository {
     public Reservation save(Reservation r){
         return reservationCrudRepository.save(r);
     }
+    //Metodo Delete, void no devuelve nada
+    public void delete(Reservation r){
+        reservationCrudRepository.delete(r);
+    }
 }

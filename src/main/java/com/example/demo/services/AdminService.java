@@ -38,6 +38,14 @@ public class AdminService {
             }
         }
     }
+    //Delete
+    public boolean deleteAdmin(int id){
+        Boolean d = getAdmin(id).map(admin ->{
+            adminRepository.delete(admin);
+            return true;
+    }).orElse(false);
+        return d;
+    }
     
     public Admin update(Admin admin){
         if(admin.getIdAdmin()!=null){

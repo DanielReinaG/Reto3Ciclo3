@@ -34,4 +34,8 @@ public class MessageRepository {
     public Message save(Message m){
         return messageCrudRepository.save(m);
     }
+    //Metodo Delete, void no devuelve nada
+    public void delete(Message m){
+        messageCrudRepository.delete(m);
+    }
 }

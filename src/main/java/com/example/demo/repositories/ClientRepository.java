@@ -34,4 +34,8 @@ public class ClientRepository {
     public Client save(Client cl){
         return clientCrudRepository.save(cl);
     }
+    //Metodo Delete, void no devuelve nada
+    public void delete(Client cl){
+        clientCrudRepository.delete(cl);
+    }
 }

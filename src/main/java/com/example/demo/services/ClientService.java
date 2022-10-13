@@ -38,6 +38,14 @@ public class ClientService {
             }
         }
     }
+    //Delete
+    public boolean deleteClient(int id){
+        Boolean d = getClient(id).map(client ->{
+            clientRepository.delete(client);
+            return true;
+    }).orElse(false);
+        return d;
+    }
     
     public Client update(Client client){
         if(client.getIdClient()!=null){

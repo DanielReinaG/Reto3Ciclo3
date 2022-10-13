@@ -38,6 +38,14 @@ public class ScoreService {
             }
         }
     }
+    //Delete
+    public boolean deleteScore(int id){
+        Boolean d = getScore(id).map(score ->{
+            scoreRepository.delete(score);
+            return true;
+    }).orElse(false);
+        return d;
+    }
     
     public Score update(Score score){
         if(score.getIdScore()!=null){

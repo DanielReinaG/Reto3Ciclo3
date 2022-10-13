@@ -31,15 +31,15 @@ public class CategoryService {
         return categoryRepository.getCategory(id);
     }
     
-    public Category save(Category guardar){
-    if(guardar.getId()==null){
-        return categoryRepository.save(guardar);
+    public Category save(Category category){
+    if(category.getId()==null){
+        return categoryRepository.save(category);
     }else{
-        Optional<Category> e= categoryRepository.getCategory(guardar.getId());
+        Optional<Category> e= categoryRepository.getCategory(category.getId());
         if(e.isEmpty()){
-            return categoryRepository.save(guardar);
+            return categoryRepository.save(category);
         }else{
-            return guardar;
+            return category;
             }
         }
     }
@@ -63,4 +63,15 @@ public class CategoryService {
             return category;
         }
     }
+    
+    //Delete
+    public boolean deleteCategory(int id){
+        Boolean d = getCategory(id).map(category ->{
+            categoryRepository.delete(category);
+            return true;
+    }).orElse(false);
+        return d;
+    }
+    
+    
 }

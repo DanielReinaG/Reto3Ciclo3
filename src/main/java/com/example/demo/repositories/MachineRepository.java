@@ -37,4 +37,5 @@ public class MachineRepository {
     public void delete(Machine machine){
         machineCrudRepository.delete(machine);
     }
+ 
 }

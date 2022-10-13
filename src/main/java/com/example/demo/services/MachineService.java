@@ -38,6 +38,14 @@ public class MachineService {
             }
         }
     }
+    //Delete
+    public boolean deleteMachine(int id){
+        Boolean d = getMachine(id).map(machine ->{
+            machineRepository.delete(machine);
+            return true;
+    }).orElse(false);
+        return d;
+    }
     
     public Machine update(Machine machine){
         if(machine.getId()!=null){
@@ -55,9 +63,9 @@ public class MachineService {
                 if(machine.getDescription()!=null){
                     e.get().setDescription(machine.getDescription());
                 }
-                //if(machine.getCategory()!=null){
-                    //e.get().setCategory(machine.getCategory());
-                //}
+                if(machine.getCategory()!=null){
+                    e.get().setCategory(machine.getCategory());
+                }
                 machineRepository.save(e.get());
                 return e.get();
                 }else{
