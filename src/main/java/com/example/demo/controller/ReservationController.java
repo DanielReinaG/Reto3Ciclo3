@@ -7,6 +7,9 @@ package com.example.demo.controller;
 
 
 import com.example.demo.entities.Reservation;
+import com.example.demo.otros.CountClient;
+import com.example.demo.otros.CountMachine;
+import com.example.demo.otros.StatusAmount;
 import com.example.demo.services.ReservationService;
 import java.util.List;
 import java.util.Optional;
@@ -62,5 +65,31 @@ public class ReservationController {
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public boolean delete(@PathVariable("id")int id){
         return reservationService.deleteReservation(id);
+    }
+    
+    //RETO5
+    @GetMapping("/report-machines")
+    public List<CountMachine> getReservationsReportMachine(){
+        return reservationService.getTopMachine();
+    }
+    
+    @GetMapping("/report-clients")
+    public List<CountClient> getReservationsReportClient(){
+        return reservationService.getTopClients();    
+    }
+    
+    @GetMapping("/report-dates/{dateOne}/{dateTwo}")
+    public List<Reservation> getReservationsReportDates(@PathVariable("dateOne")String dateOne,@PathVariable("dateTwo") String dateTwo){
+            return reservationService.getReservationPeriod(dateOne, dateTwo);
+    }
+    
+    /*@GetMapping("/report-dates/amount/(dateOne)/(dateTwo)")
+    public Integer getReservationsReportDatesAmount (@PathVariable("dateOne")String dateOne,@PathVariable("dateTwo") String dateTwo){
+            return reservationService.getReservationsPeriod(dateOne, dateTwo).size();
+    }*/
+    
+    @GetMapping("/report-status")
+    public StatusAmount getReservationReportStatus(){
+        return reservationService.getReservationsStatusReport();
     }
 }

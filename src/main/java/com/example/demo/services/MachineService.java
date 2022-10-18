@@ -75,4 +75,14 @@ public class MachineService {
             return machine;
         }
     }
+    
+    /*public List<YearAmount> getTopMachineByYear(){
+        
+        List<Object[]> report = machineRepository.getTopByYear();
+        List<YearAmount> res = new ArrayList<>();
+        for(int i=0; i<report.size(); i++){
+            res.add(new YearAmount((int)report.get(i)[0], (int) report.get(i)[1]));
+        }
+        return res;
+    }*/
 }

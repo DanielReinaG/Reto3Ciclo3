@@ -7,6 +7,8 @@ package com.example.demo.crud.repository;
 
 
 import com.example.demo.entities.Machine;
+import java.util.List;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 
 /**
@@ -15,4 +17,6 @@ import org.springframework.data.repository.CrudRepository;
  */
 public interface MachineCrudRepository extends CrudRepository<Machine,Integer>{
     
+    @Query ("SELECT c.year, COUNT(c.year) from Machine AS c group by c.year order by COUNT(c.year) DESC")
+    public List<Object[]> countTotalMachinesByYear();
 }

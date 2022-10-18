@@ -37,5 +37,9 @@ public class MachineRepository {
     public void delete(Machine machine){
         machineCrudRepository.delete(machine);
     }
+    
+    public List<Object[]> getTopByYear(){
+        return machineCrudRepository.countTotalMachinesByYear();
+    }
  
 }
